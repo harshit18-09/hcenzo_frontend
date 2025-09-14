@@ -26,7 +26,7 @@ export const Payment = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          `https://travelapp.cyclic.app/api/hotels/${id}`
+          `https://hcenzo-1.onrender.com/api/hotels/${id}`
         );
         setSingleHotel(data);
       } catch (err) {
@@ -61,7 +61,7 @@ export const Payment = () => {
       key: "rzp_test_VSdp7X3K39GwBK",
       amount: totalPayableAmount * 100,
       currency: "INR",
-      name: "TravelO",
+      name: "HCenzo",
       email: "sakari@gmail.com",
       contact: "9876543210",
       description: "Thank you for booking with us",
@@ -90,7 +90,7 @@ export const Payment = () => {
       <header className="heading">
         <h1 className="heading-1">
           <Link className="link" to="/">
-            TravelO
+            HCenzo
           </Link>
         </h1>
       </header>
@@ -149,7 +149,7 @@ export const Payment = () => {
           </div>
           <div className="tag">
             Your booking is protected by{" "}
-            <strong className="strong">TravelO</strong> cover
+            <strong className="strong">HCenzo</strong> cover
           </div>
           <div className="price-detail-container">
             <div className="price-distribution d-flex direction-column">

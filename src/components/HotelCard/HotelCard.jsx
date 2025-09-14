@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "./HotelCard.css";
 import { useWishlist, useAuth, useAlert } from "../../context";
 import { findHotelInWishlist } from "../../utils";
+import { fallbackImage } from "../../utils/fallback-image";
 
 export const HotelCard = ({ hotel }) => {
   const { _id, name, image, address, state, rating, price } = hotel;
@@ -17,7 +18,9 @@ export const HotelCard = ({ hotel }) => {
   const navigate = useNavigate();
 
   const handleHotelCardClick = () => {
-    navigate(`/hotels/${name}/${address}-${state}/${_id}/reserve`);
+    const encodedName = encodeURIComponent(name);
+    const encodedAddress = encodeURIComponent(`${address}-${state}`);
+    navigate(`/hotels/${encodedName}/${encodedAddress}/${_id}/reserve`);
   };
 
   const handleWishlistClick = () => {
@@ -53,7 +56,16 @@ export const HotelCard = ({ hotel }) => {
   return (
     <div className="relative hotelcard-container shadow cursor-pointer">
       <div onClick={handleHotelCardClick}>
-        <img className="img" src={image} alt={name} />
+        <img 
+          className="img" 
+          src={image} 
+          alt={name}
+          onError={(e) => {
+            console.log(`Image failed to load for hotel: ${name}`, image);
+            e.target.onerror = null;
+            e.target.src = fallbackImage;
+          }}
+        />
         <div className="hotelcard-details">
           <div className="d-flex align-center">
             <span className="location">

@@ -16,7 +16,7 @@ export const SearchStayWithDate = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          `https://travelapp.cyclic.app/api/hotels?category=${hotelCategory}`
+          `https://hcenzo-1.onrender.com/api/hotels?category=${hotelCategory}`
         );
         setHotels(data);
       } catch (err) {

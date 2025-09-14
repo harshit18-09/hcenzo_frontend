@@ -53,7 +53,7 @@ export const filterReducer = (state, { type, payload }) => {
     case "RATING":
       return {
         ...state,
-        traveloRating: Number(payload),
+        hcenzoRating: Number(payload),
       };
     case "CANCELABLE":
       return {
@@ -68,7 +68,7 @@ export const filterReducer = (state, { type, payload }) => {
         noOfBedrooms: "Any",
         noOfBeds: "Any",
         propertyType: "Any",
-        traveloRating: 1,
+        hcenzoRating: 1,
         isCancelable: true,
       };
     default:

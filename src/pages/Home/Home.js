@@ -26,7 +26,8 @@ export const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(16);
   const [testData, setTestData] = useState([]);
   const [hotels, setHotels] = useState([]);
-  const { hotelCategory } = useCategory();
+  const [isLoading, setIsLoading] = useState(true);
+  const { selectedCategory } = useCategory();
   const { isSearchModalOpen } = useDate();
   const {
     isFilterModalOpen,
@@ -35,7 +36,7 @@ export const Home = () => {
     noOfBedrooms,
     noOfBeds,
     propertyType,
-    traveloRating,
+    hcenzoRating,
     isCancelable,
   } = useFilter();
 
@@ -45,17 +46,27 @@ export const Home = () => {
   useEffect(() => {
     (async () => {
       try {
+        setIsLoading(true);
+        console.log('Fetching data from API...');
         const { data } = await axios.get(
-          `https://travelapp.cyclic.app/api/hotels?category=${hotelCategory}`
+          `https://hcenzo-1.onrender.com/api/hotels`
         );
-
-        setTestData(data);
-        setHotels(data ? data.slice(0, 16) : []);
+        console.log('API Response:', data);
+        
+        let filteredData = data;
+        if (selectedCategory !== 'All') {
+          filteredData = data.filter(hotel => hotel.category === selectedCategory);
+        }
+        
+        setTestData(filteredData);
+        setHotels(filteredData ? filteredData.slice(0, 16) : []);
       } catch (err) {
-        console.log(err);
+        console.error('API Error:', err);
+      } finally {
+        setIsLoading(false);
       }
     })();
-  }, [hotelCategory]);
+  }, [selectedCategory]);
 
 
   const fetchMoreData = () => {
@@ -89,19 +100,28 @@ export const Home = () => {
 
   const filteredHotelsByRatings = getHotelsByRatings(
     filteredHotelsByPropertyType,
-    traveloRating
+    hcenzoRating
   );
 
   const filteredHotelsByCancelation = getHotelsByCancelation(
     filteredHotelsByRatings,
     isCancelable
   );
+  
+  console.log('Rendering Home with:', {
+    isLoading,
+    hotelsLength: hotels?.length,
+    filteredHotelsLength: filteredHotelsByCancelation?.length,
+    testDataLength: testData?.length
+  });
 
   return (
     <div className="relative">
       <Navbar route="home"/>
       <Categories />
-      {hotels && hotels.length > 0 ? (
+      {isLoading ? (
+        <div style={{ textAlign: 'center', padding: '20px' }}>Loading...</div>
+      ) : hotels && hotels.length > 0 ? (
         <InfiniteScroll
           dataLength={hotels.length}
           next={fetchMoreData}
@@ -119,7 +139,7 @@ export const Home = () => {
           </main>
         </InfiniteScroll>
       ) : (
-        <></>
+        <div style={{ textAlign: 'center', padding: '20px' }}>No hotels found</div>
       )}
       {isDropDownModalOpen && <ProfileDropDown />}
       {isSearchModalOpen && <SearchStayWithDate />}

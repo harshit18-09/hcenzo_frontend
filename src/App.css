@@ -4,13 +4,56 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import url("./components/Navbar/Navbar.css");
 
-:root {
-  --background-color: #ead1d1;
-  --primary-color: #0d5cb1;
-  --text-color-primary: #351c1c;
-  --accent-color: #d2d2d2;
-  --container-border-color: #aaaaaa;
-  --overlay: rgba(0, 0, 0, 0.3);
+:root[data-theme="light"] {
+  /* Main Colors */
+  --background-color: #f4f5f7;
+  --primary-color: #5b899d;
+  --secondary-color: #07abb9;
+  --accent-color: #e4a70d;
+  
+  /* Text Colors */
+  --text-color-primary: #1a202c;
+  --text-color-secondary: #4a5568;
+  --text-color-light: #ffffff;
+  
+  /* UI Elements */
+  --container-border-color: #e2e8f0;
+  --card-background: #ffffff;
+  --input-background: #edf2f7;
+  --overlay: rgba(26, 32, 44, 0.4);
+}
+
+:root[data-theme="dark"] {
+  /* Main Colors */
+  --background-color: #171923;
+  --primary-color: #81e6d9;
+  --secondary-color: #00b5d8;
+  --accent-color: #daa520;
+  
+  /* Text Colors */
+  --text-color-primary: #f7fafc;
+  --text-color-secondary: #a0aec0;
+  --text-color-light: #ffffff;
+  
+  /* UI Elements */
+  --container-border-color: #2d3748;
+  --card-background: #1a202c;
+  --input-background: #2d3748;
+  --overlay: rgba(0, 0, 0, 0.6);
+  
+  /* Status Colors */
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --warning-color: #f59e0b;
+  
+  /* Hover States */
+  --primary-hover: #1d4ed8;
+  --accent-hover: #d97706;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -21,4 +64,81 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   background-color: var(--background-color);
+  color: var(--text-color-primary);
+}
+
+/* Enhanced Button Styles */
+.button {
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.button-secondary {
+  background-color: var(--secondary-color);
+}
+
+.button-accent {
+  background-color: var(--accent-color);
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--card-background);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Input Styles */
+input, select, textarea {
+  background-color: var(--input-background);
+  border: 1px solid var(--container-border-color);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Link Styles */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* Status Message Styles */
+.success {
+  color: var(--success-color);
+}
+
+.error {
+  color: var(--error-color);
+}
+
+.warning {
+  color: var(--warning-color);
 }

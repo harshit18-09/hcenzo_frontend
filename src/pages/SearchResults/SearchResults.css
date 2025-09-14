@@ -1,0 +1,14 @@
+.section-search-results {
+    margin: 2rem 4rem;
+}
+
+.hotel-listings {
+    padding: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .section-search-results {
+        margin: 1rem;
+        flex-direction: column;
+    }
+}

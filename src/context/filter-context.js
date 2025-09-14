@@ -8,7 +8,7 @@ const initalValue = {
   noOfBedrooms: "Any",
   noOfBeds: "Any",
   propertyType: "Any",
-  traveloRating: 1,
+  hcenzoRating: 1,
   isCancelable: true,
 };
 
@@ -23,7 +23,7 @@ const FilterProvider = ({ children }) => {
       noOfBedrooms,
       noOfBeds,
       propertyType,
-      traveloRating,
+      hcenzoRating,
       isCancelable,
     },
     filterDispatch,
@@ -38,7 +38,7 @@ const FilterProvider = ({ children }) => {
         noOfBedrooms,
         noOfBeds,
         propertyType,
-        traveloRating,
+        hcenzoRating,
         isCancelable,
         filterDispatch,
       }}

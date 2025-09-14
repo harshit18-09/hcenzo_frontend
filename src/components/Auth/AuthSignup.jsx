@@ -86,20 +86,73 @@ export const AuthSignup = () => {
     }
   };
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
+    
+    // Validate all fields
+    if (!isNumberValid || !number) {
+      setAlert({
+        open: true,
+        message: "Please enter a valid mobile number",
+        type: "error"
+      });
+      return;
+    }
+    
+    if (!isNameValid || !username) {
+      setAlert({
+        open: true,
+        message: "Please enter a valid name",
+        type: "error"
+      });
+      return;
+    }
+    
+    if (!isEmailValid || !email) {
+      setAlert({
+        open: true,
+        message: "Please enter a valid email address",
+        type: "error"
+      });
+      return;
+    }
+    
+    if (!isPasswordValid || !password) {
+      setAlert({
+        open: true,
+        message: "Password must contain at least 8 characters, including uppercase, lowercase, number and special character",
+        type: "error"
+      });
+      return;
+    }
+    
+    if (password !== confirmPassword) {
+      setAlert({
+        open: true,
+        message: "Passwords do not match",
+        type: "error"
+      });
+      return;
+    }
+
     if (
       isNumberValid &&
       isNameValid &&
       isEmailValid &&
       isPasswordValid &&
-      isConfirmPasswordValid
+      password === confirmPassword
     ) {
-      signupHandler(username, number, email, password, setAlert);
+      const success = await signupHandler(username, number, email, password, setAlert);
+      if (success) {
+        authDispatch({
+          type: "CLEAR_USER_DATA",
+        });
+        // Close the auth modal if signup is successful
+        authDispatch({
+          type: "HIDE_AUTH_MODAL",
+        });
+      }
     }
-    authDispatch({
-      type: "CLEAR_USER_DATA",
-    });
   };
 
   return (

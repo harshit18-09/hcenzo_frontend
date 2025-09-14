@@ -5,3 +5,4 @@ export { useAuth, AuthProvider } from "./auth-context";
 export { useWishlist, WishlistProvider } from "./wishlist-context";
 export { useHotel, HotelProvider } from "./hotel-context";
 export { useAlert, AlertProvider } from "./alert-context";
+export { useTheme, ThemeProvider } from "./theme-context";

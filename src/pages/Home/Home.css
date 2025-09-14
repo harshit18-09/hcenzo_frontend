@@ -1,5 +1,7 @@
 .main {
-  padding: 11rem 2rem 2rem 2rem;
+  padding: 10rem 2rem 2rem 2rem; /* Adjusted top padding for better spacing */
+  margin-top: 0;
+  min-height: 100vh;
 }
 
 .gap-larger {
@@ -9,4 +11,10 @@
 .alert-text {
   margin: 2rem 0;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding-top: 8rem;
+  }
 }
