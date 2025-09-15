@@ -130,23 +130,6 @@ export const Payment = () => {
           </button>
         </div>
         <div className="final-details d-flex direction-column gap-large">
-          <div className="d-flex gap-sm">
-            <img className="image" src={image} alt={name} />
-            <div className="d-flex direction-column">
-              <div className="d-flex direction-column grow-shrink-basis">
-                <span>{name}</span>
-                <span>
-                  {address}, {state}
-                </span>
-              </div>
-              <div className="rating-container">
-                <span className="rating d-flex align-center">
-                  <span className="material-icons-outlined">star</span>
-                  <span>{rating}</span>
-                </span>
-              </div>
-            </div>
-          </div>
           <div className="tag">
             Your booking is protected by{" "}
             <strong className="strong">HCenzo</strong> cover

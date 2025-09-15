@@ -57,25 +57,40 @@ export const AuthLogin = () => {
     });
   };
 
-  const handleTestCredentialsClick = async () => {
-    const { accessToken, username } = await loginHandler(
-      7878787878,
-      "Abcd@1234",
-      setAlert
-    );
+  const handleTestCredentialsClick = () => {
+    // Set fixed test user credentials
+    const testAccessToken = "test-token-12345";
+    const testUsername = "Test User";
+
+    // Set test credentials in local storage
+    localStorage.setItem("token", testAccessToken);
+    localStorage.setItem("username", testUsername);
+
+    // Update auth state
     authDispatch({
       type: "SET_ACCESS_TOKEN",
-      payload: accessToken,
+      payload: testAccessToken,
     });
     authDispatch({
       type: "SET_USER_NAME",
-      payload: username,
+      payload: testUsername,
     });
+
+    // Clear form data
     authDispatch({
       type: "CLEAR_USER_DATA",
     });
+
+    // Close the auth modal
     authDispatch({
       type: "SHOW_AUTH_MODAL",
+    });
+
+    // Show success message
+    setAlert({
+      open: true,
+      message: "Logged in successfully with test account!",
+      type: "success"
     });
   };
 

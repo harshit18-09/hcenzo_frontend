@@ -10,6 +10,9 @@
 .final-details-container {
   padding: 1rem;
   width: 25rem;
+  position: relative;
+  z-index: 0;
+  background-color: var(--background-color);
 }
 
 .dates-and-guests {
@@ -37,15 +40,46 @@
   border: 1px solid var(--accent-color);
   border-radius: 4px;
   padding: 1rem 1.5rem;
+  position: relative;
+  z-index: 0;
+  background-color: var(--background-color);
+}
+
+
+
+.tag {
+  margin-top: 1rem;
+}
+
+.hotel-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.hotel-address {
+  color: var(--text-color-secondary);
+  font-size: 0.9rem;
 }
 
 .image {
   width: 12.5rem;
+  height: 12.5rem;
   border-radius: 4px;
+  object-fit: cover;
 }
 
-.rating-container {
-  margin-bottom: auto;
+.rating {
+  color: var(--text-color-primary);
+  gap: 0.25rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--text-color-primary);
 }
 
 .tag {
@@ -58,14 +92,28 @@
   color: var(--primary-color);
 }
 
+.price-detail-container {
+  margin-top: 1rem;
+}
+
 .price-detail-container .price-distribution {
   padding: 0;
 }
 
+.price-detail-container h3 {
+  margin-bottom: 1rem;
+  color: var(--text-color-primary);
+}
+
 .price-detail-container .final-price {
   padding: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .price-detail-container .final-price .span {
   font-size: 1rem;
+  color: var(--text-color-primary);
 }
