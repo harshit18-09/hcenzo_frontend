@@ -1,7 +1,10 @@
 .hotelcard-container {
-  width: 20rem;
+  width: 100%;
+  max-width: 20rem;
+  min-width: 280px;
   border-radius: 4px;
   background-color: var(--background-color);
+  margin: 0.5rem;
 }
 
 .img {
@@ -9,6 +12,18 @@
   height: 15rem;
   object-fit: cover;
   border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .hotelcard-container {
+    max-width: 100%;
+    margin: 0.5rem 0;
+  }
+  
+  .img {
+    height: 12rem;
+  }
 }
 
 .hotelcard-details {
