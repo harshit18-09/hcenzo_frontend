@@ -35,7 +35,7 @@ export const Payment = () => {
     })();
   }, [id]);
 
-  const { image, name, address, state, rating, price } = singleHotel;
+  const { price } = singleHotel;
 
   const totalPayableAmount = price * numberOfNights + 150;
 
