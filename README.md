@@ -1,70 +1,182 @@
-# Getting Started with Create React App
+# HCenzo – Full Stack Application  
+A simple and functional full-stack application built with a **React frontend** and a **Node.js + Express backend**. HCenzo demonstrates clean API integration, modular React structure, reusable components, and a deployed full-stack workflow.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# 🌐 Live Demo  
+Frontend: **https://hcenzo.vercel.app/**
 
-In the project directory, you can run:
+Backend: **https://hcenzo-1.onrender.com/**
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# 📂 Repositories  
+- **Frontend:** https://github.com/harshit18-09/hcenzo_frontend  
+- **Backend:** https://github.com/harshit18-09/HCenzo  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+# 🧩 Technology Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## **Frontend**
+- React  
+- React Router  
+- Axios  
+- Context API / Hooks  
+- CSS / Styled Components  
+- Vercel (Deployment)
 
-### `npm run build`
+## **Backend**
+- Node.js  
+- Express.js  
+- MongoDB + Mongoose  
+- JWT Authentication (if enabled)  
+- dotenv  
+- CORS  
+- Render (Deployment)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# ⚙️ Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## **Frontend Features**
+- Clean and modular component architecture  
+- API-driven UI  
+- Protected routes (if enabled)  
+- Fetching and displaying backend data  
+- Environment-based API configuration  
+- Responsive UI  
 
-### `npm run eject`
+## **Backend Features**
+- REST APIs  
+- Modular controllers and routes  
+- MongoDB models  
+- JWT-based auth flow (if implemented)  
+- Standard middleware structure  
+- Error-handling and validation basics  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 🔧 Installation & Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## **Frontend Setup**
+```bash
+git clone https://github.com/harshit18-09/hcenzo_frontend.git
+cd hcenzo_frontend
+npm install
+npm start
+```
+## **Environment Variables (Frontend)**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Create a .env file:
+```
+REACT_APP_API_URL=http://localhost:5000
+```
 
-## Learn More
+## **Backend Setup**
+git clone https://github.com/harshit18-09/HCenzo.git
+cd HCenzo
+npm install
+npm run dev
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##**Environment Variables (Backend)**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create a .env file:
+```
+PORT=5000
+MONGO_URI=your_mongodb_url
+JWT_SECRET=your_secret
+```
 
-### Code Splitting
+# Project Structure
+## **Frontend**
+```
+├── public  
+│   └── (Contains static assets like index.html, favicon, images, etc.)
+├── src
+│   ├── components
+│   │   ├── Alert
+│   │   ├── Auth
+│   │   ├── AuthModal
+│   │   ├── Categories
+│   │   ├── DateSelector
+│   │   ├── Filters
+│   │   ├── FinalPrice
+│   │   ├── HotelCard
+│   │   ├── HotelDetails
+│   │   ├── HotelImages
+│   │   ├── Navbar
+│   │   ├── OrderSummaryComp
+│   │   ├── ProfileDropDown
+│   │   ├── SearchStayWithDate
+│   │   ├── ThemeToggle
+│   │   └── index.js  (Component Barrel/Export file)
+│   ├── context  (Global state management context)
+│   ├── pages  (Top-level view components/routes)
+│   ├── reducer  (State management reducers, e.g., for useReducer or Redux)
+│   ├── services  (Functions for API calls/business logic)
+│   ├── utils  (Utility functions)
+│   ├── App.css
+│   ├── App.js  (Main application component)
+│   └── index.js  (Entry point for the React application, renders App)
+├── .env  (Environment variables for the client-side)
+├── .gitignore
+├── README.md
+├── package-lock.json
+├── package.json
+└── vercel.json
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## **Backend**
+```
+├── config
+│   └── dbconfig.js
+├── controllers
+│   ├── loginController.js
+│   ├── signupController.js
+│   └── wishlistController.js
+├── data
+│   ├── categories.js
+│   └── hotels.js
+├── middleware
+│   └── verifyuser.js
+├── model
+│   ├── category.model.js
+│   ├── hotel.model.js
+│   ├── user.model.js
+│   └── wishlist.model.js
+├── routes
+│   ├── auth.router.js
+│   ├── category.router.js
+│   ├── categoryimport.router.js
+│   ├── dataimport.router.js
+│   ├── hotel.router.js
+│   ├── singlehotel.router.js
+│   └── wishlist.router.js
+├── .env.example
+├── .gitignore
+├── README.MD
+├── package-lock.json
+├── package.json
+├── render.yaml
+└── server.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## **📝 Future Enhancements**
 
-### Making a Progressive Web App
+- Add better UI/UX
+- Add authentication guard
+- Add advanced dashboards
+- Add containerization (Docker)
+- Add production-grade logging
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## **📜 License**
 
-### Advanced Configuration
+MIT License.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## **✨ Author**
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Harshit Chugh
+- GitHub: https://github.com/harshit18-09
+- LinkedIn: https://www.linkedin.com/in/harshit-chugh-719005294
